@@ -1,7 +1,7 @@
 
-# Gerador de Boletos API #
+# Gerador de Boletos Bancários - API #
 
-Essa api oferece recursos para geração de boletos bancários.
+Esta api oferece recursos para geração de boletos bancários.
 
 **Índice**
  1. A API
@@ -18,7 +18,7 @@ Desenvolvida em:
  - **Postgresql 10.4**.
 
 ## 2- Recursos oferecidos
-A API está documentada através do swagger, disponível na url:
+A API utiliza o swagger para documentá-la, disponível na url:
 
  `http://localhost:8080/rest/swagger-ui.html`
  
@@ -42,7 +42,7 @@ Ex:
  
  `GET http://localhost:8080/rest/bankslips/`
  
-Esse método da API retornar uma lista de boletos de todos os boletos criados.
+Esse método da API retorna uma lista de todos os boletos criados.
 
 Ex:
 
@@ -65,8 +65,7 @@ Ex:
  
  `GET http://localhost:8080/rest/bankslips/{id}`
  
-Esse método da API retorna um boleto filtrado pelo id e caso o boleto estiver atrasado deve ser calculado o valor da multa.
-Regra utilizada para o cálculo da multa aplicada por dia para os boletos atrasados:
+Esse método da API retorna detalhes de um boleto filtrado pelo id. Exibe informação de multa conforme regra abaixo:
 
 `Até 10 dias: Multa de 0,5% (Juros Simples)`
 
