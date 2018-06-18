@@ -118,6 +118,11 @@ Ex:
 	
 	make -f Makefile up
 	
+
+Para acompanhar o deploy utilize:
+	
+`docker logs bankslips-service  --follow`
+
 *[Docker](https://docs.docker.com/install/) e [Docker compose](https://docs.docker.com/compose/install/)  é necessário para setup.*
 
 
