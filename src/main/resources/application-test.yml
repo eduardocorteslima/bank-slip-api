@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    url: jdbc:hsqldb:mem:testdb.script
+    username: sa
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true

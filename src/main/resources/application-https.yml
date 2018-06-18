@@ -1,0 +1,15 @@
+server:
+  port: 9443
+  ssl:
+    key-store: classpath:tomcat.keystore
+    key-store-password: password
+    key-password: password
+    
+spring:
+  datasource:
+    url: jdbc:postgresql://mypostgres:5432/mydb 
+    username: postgres 
+    password: password   
+  jpa:
+    hibernate: 
+      ddl-auto: update

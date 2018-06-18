@@ -1,0 +1,26 @@
+version: '3'
+services:
+  app:
+    container_name: bankslips-service
+    image: maven:3.5-jdk-8
+    volumes:
+      - ../../bank-slip-api:/app
+    working_dir: /app
+    expose: 
+      - 8080
+    ports:
+      - "8080:8080"
+    command: mvn clean spring-boot:run
+    environment:
+         - SPRING_PROFILES_ACTIVE=prod
+    depends_on:
+        - db_postgres
+  db_postgres:
+    container_name: bankslips-db
+    image: postgres
+    ports:
+     - "5432:5432"
+    environment:
+     - POSTGRES_PASSWORD=password
+     - POSTGRES_USER=postgres
+     - POSTGRES_DB=bankslipsdb

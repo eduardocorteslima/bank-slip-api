@@ -1,0 +1,11 @@
+server:
+  servlet:
+    context-path: /rest
+spring:
+  datasource:
+    url: jdbc:hsqldb:mem:testdb.script
+    username: sa
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false

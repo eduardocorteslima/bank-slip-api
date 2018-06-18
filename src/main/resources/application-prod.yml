@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://db_postgres:5432/bankslipsdb 
+    username: postgres 
+    password: password   
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL94Dialect
+    hibernate: 
+      naming: 
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyJpaCompliantImpl
+      ddl-auto: update
+      
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
+      
