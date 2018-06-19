@@ -6,6 +6,8 @@ import java.time.Period;
 
 import org.springframework.stereotype.Component;
 
+import com.contaazul.bankslip.exception.FineCalculatorException;
+
 @Component
 public class DefaultFineCalculator implements FineCalculator {
 
@@ -38,7 +40,7 @@ public class DefaultFineCalculator implements FineCalculator {
 
 		} catch (final Exception e) {
 
-			throw new RuntimeException(String.format(EXCEPTION_MESSAGE_FINE_CALCULATE, e.getMessage()), e);
+			throw new FineCalculatorException(String.format(EXCEPTION_MESSAGE_FINE_CALCULATE, e.getMessage()), e);
 
 		}
 	}

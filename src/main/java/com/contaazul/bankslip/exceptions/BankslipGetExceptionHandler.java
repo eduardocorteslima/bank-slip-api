@@ -19,17 +19,17 @@ public class BankslipGetExceptionHandler extends BankslipExceptionHandlerDefault
 	@ExceptionHandler
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	public BanksplipErrorResponseVo constraintViolationException(IllegalArgumentException ex) {
-		List<String> errors = new ArrayList<String>();
+		List<String> errors = new ArrayList<>();
 		
 		errors.add(INVALID_ID_PROVIDED_IT_MUST_BE_A_VALID_UUID);
-		
+
 		return new BanksplipErrorResponseVo(HttpStatus.BAD_REQUEST.value(), errors);
 	}
 
 	@ExceptionHandler
 	@ResponseStatus(HttpStatus.NOT_FOUND)
 	public BanksplipErrorResponseVo handleConstraintViolation(BankslipNotFoundException ex) {
-		List<String> errors = new ArrayList<String>();
+		List<String> errors = new ArrayList<>();
 
 		errors.add(ex.getMessage());
 

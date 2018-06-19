@@ -26,23 +26,23 @@ public class BankslipPostExceptionHandler {
 	@ExceptionHandler
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	public BanksplipErrorResponseVo constraintViolationException(HttpMessageNotReadableException ex) {
-	
-		List<String> errors = new ArrayList<String>();
+
+		List<String> errors = new ArrayList<>();
 		errors.add(BANKSLIP_NOT_PROVIDED_IN_THE_REQUEST_BODY);
+
 		return new BanksplipErrorResponseVo(HttpStatus.BAD_REQUEST.value(), errors);
 	}
 
 	@ExceptionHandler
 	@ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
 	public BanksplipErrorResponseVo handleConstraintViolation(MethodArgumentNotValidException ex, WebRequest request) {
-		
-		List<String> errors = new ArrayList<String>();
+
+		List<String> errors = new ArrayList<>();
 		errors.add(INVALID_BANKSLIP_PROVIDED_THE_POSSIBLE_REASONS_ARE);
 
-		 BindingResult bindingResult = ex.getBindingResult();
-		  List<FieldError> fieldErrors = bindingResult.getFieldErrors();
-		  errors.addAll(fieldErrors.stream().map(p -> p.getField()).collect(Collectors.toList()));
-
+		BindingResult bindingResult = ex.getBindingResult();
+		List<FieldError> fieldErrors = bindingResult.getFieldErrors();
+		errors.addAll(fieldErrors.stream().map(FieldError::getField).collect(Collectors.toList()));
 
 		return new BanksplipErrorResponseVo(HttpStatus.UNPROCESSABLE_ENTITY.value(), errors);
 	}
@@ -50,11 +50,11 @@ public class BankslipPostExceptionHandler {
 	@ExceptionHandler
 	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 	public BanksplipErrorResponseVo unknownException(Exception ex) {
-	
-		List<String> errors = new ArrayList<String>();
+
+		List<String> errors = new ArrayList<>();
 		errors.add(ex.getMessage());
-		ex.printStackTrace();
+
 		return new BanksplipErrorResponseVo(HttpStatus.INTERNAL_SERVER_ERROR.value(), errors);
-	
+
 	}
 }

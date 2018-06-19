@@ -20,7 +20,7 @@ public class BankslipPostRestController {
 	private BankslipService bankslipService;
 
 	@PostMapping
-	public ResponseEntity<?> createOne(@Validated(Bankslip.New.class)  @RequestBody Bankslip bankslip) {
+	public ResponseEntity<Bankslip> createOne(@Validated(Bankslip.New.class)  @RequestBody Bankslip bankslip) {
 
 		return ResponseEntity.status(HttpStatus.CREATED).body(bankslipService.createOne(bankslip));
 

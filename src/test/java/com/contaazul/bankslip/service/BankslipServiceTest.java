@@ -179,7 +179,7 @@ public class BankslipServiceTest extends BankslipApplicationTest {
 	}
 
 	private void validateReturnBankslip(Optional<Bankslip> returned, Bankslip expected) {
-		assertThat(returned.isPresent());
+		assertThat(returned.isPresent()).isEqualTo(true);
 		assertThat(returned.get().getId()).isEqualTo(expected.getId());
 		assertThat(returned.get().getDueDate()).isEqualTo(expected.getDueDate());
 		assertThat(returned.get().getCustomer()).isEqualTo(expected.getCustomer());

@@ -53,11 +53,11 @@ public class BankslipPutRestControllerTest extends RestControllerTest {
 		.andExpect(status().isOk());
 		
 		Optional<Bankslip> bankslipPaid= this.bankslipRepository.findById(bankslipList.get(0).getId());
-		assertThat(bankslipPaid.isPresent());
+		assertThat(bankslipPaid.isPresent()).isEqualTo(true);
 		assertThat(bankslipPaid.get().getStatus()).isEqualTo(BankslipStatus.PAID);
 	
 		Optional<Bankslip> bankslipPending= this.bankslipRepository.findById(bankslipList.get(1).getId());
-		assertThat(bankslipPending.isPresent());
+		assertThat(bankslipPending.isPresent()).isEqualTo(true);
 		assertThat(bankslipPending.get().getStatus()).isEqualTo(BankslipStatus.PENDING);
 	}
 	
@@ -123,11 +123,11 @@ public class BankslipPutRestControllerTest extends RestControllerTest {
 		.andExpect(status().isOk());
 		
 		Optional<Bankslip> bankslipPaid= this.bankslipRepository.findById(bankslipList.get(0).getId());
-		assertThat(bankslipPaid.isPresent());
+		assertThat(bankslipPaid.isPresent()).isEqualTo(true);;
 		assertThat(bankslipPaid.get().getStatus()).isEqualTo(BankslipStatus.CANCELED);
 	
 		Optional<Bankslip> bankslipPending= this.bankslipRepository.findById(bankslipList.get(1).getId());
-		assertThat(bankslipPending.isPresent());
+		assertThat(bankslipPending.isPresent()).isEqualTo(true);;
 		assertThat(bankslipPending.get().getStatus()).isEqualTo(BankslipStatus.PENDING);
 	}
 	

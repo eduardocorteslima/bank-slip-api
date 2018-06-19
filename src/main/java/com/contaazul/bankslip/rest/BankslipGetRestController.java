@@ -1,5 +1,6 @@
 package com.contaazul.bankslip.rest;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ public class BankslipGetRestController {
 	private BankslipService bankslipService;
 
 	@GetMapping
-	public ResponseEntity<?> findAll() {
+	public ResponseEntity<List<Bankslip>> findAll() {
 		return ResponseEntity.ok(bankslipService.findAll());
 	}
 
