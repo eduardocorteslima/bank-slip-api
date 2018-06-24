@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/eduardocorteslima/bank-slip-api.svg?branch=master)](https://travis-ci.org/eduardocorteslima/bank-slip-api)
+
 
 # Gerador de Boletos Bancários - API #
 
