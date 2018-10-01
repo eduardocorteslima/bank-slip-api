@@ -53,8 +53,6 @@ public class BankslipGetRestControllerTest extends RestControllerTest {
 	}
 	
 	
-	@Test
-	@Ignore
 	public void get_by_id_must_return_one_baskslip_with_fine_greater_than_ten_days() throws Exception {
 
 		Bankslip bankslip = bankslipRepository.save(Bankslip.builder()
@@ -73,7 +71,7 @@ public class BankslipGetRestControllerTest extends RestControllerTest {
 		.andExpect(jsonPath("$.due_date", is(bankslip.getDueDate().toString())))
 		.andExpect(jsonPath("$.total_in_cents", is(bankslip.getTotalInCents().doubleValue())))
 		.andExpect(jsonPath("$.customer", is(bankslip.getCustomer())))
-		.andExpect(jsonPath("$.fine", is(BigDecimal.valueOf(0L).doubleValue())));
+		.andExpect(jsonPath("$.fine", is(BigDecimal.valueOf(1000L).doubleValue())));
 	}
 	
 	@Test
