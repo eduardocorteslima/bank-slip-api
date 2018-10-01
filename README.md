@@ -106,8 +106,6 @@ Ex:
        {
          "status": "PAID"
        }
-         
-
 
 **- Cancel a ticket**
 
