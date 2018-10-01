@@ -72,7 +72,7 @@ public class BankslipGetRestControllerTest extends RestControllerTest {
 		.andExpect(jsonPath("$.due_date", is(bankslip.getDueDate().toString())))
 		.andExpect(jsonPath("$.total_in_cents", is(bankslip.getTotalInCents().doubleValue())))
 		.andExpect(jsonPath("$.customer", is(bankslip.getCustomer())))
-		.andExpect(jsonPath("$.fine", is(BigDecimal.valueOf(1000L).doubleValue())));
+		.andExpect(jsonPath("$.fine", is(BigDecimal.valueOf(0L).doubleValue())));
 	}
 	
 	@Test
